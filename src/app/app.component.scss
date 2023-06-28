@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main{
+  display: flex;
+}
+
+.sidebar{
+    display: inline-flex;
+    width: 20%;
+}
+
+.content{
+    display: inline-flex;
+}

@@ -1,0 +1,80 @@
+<div class="container">
+  <h1>Prueba de Angular</h1>
+  <form [formGroup]="form" class="form">
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field>
+          <input
+            maxlength="30"
+            formControlName="Id"
+            matTooltip="Id"
+            matInput
+            placeholder="Id"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            maxlength="30"
+            formControlName="Name"
+            matTooltip="Name"
+            matInput
+            placeholder="Name"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            maxlength="30"
+            formControlName="Description"
+            matTooltip="Description"
+            matInput
+            placeholder="Description"
+          />
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="warn" (click)="save()">
+            Guardar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+  <mat-card>
+    <mat-card-content>
+      <div class="mat-elevation-z8">
+        <table
+          style="width: 100%"
+          mat-table
+          [dataSource]="dataSource"
+        >
+          <ng-container matColumnDef="Id" sticky>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.Id }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Name" sticky>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.Name }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Description" sticky>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Description
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.Description }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator
+          [pageSize]="100"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+        ></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
